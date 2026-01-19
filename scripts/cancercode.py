@@ -8,7 +8,7 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 data_dir = os.path.normpath(os.path.join(script_dir, '..', 'data'))
 results_dir = os.path.normpath(os.path.join(script_dir, '..', 'results'))
 
-# ---------- functions ----------
+####functions####
 
 # function that replaces a nucleotide
 def Mutate_DNA(seq):
@@ -45,7 +45,7 @@ def Delete_DNA(seq):
     rand_index = random.randrange(len(seq))
     return seq[:rand_index] + seq[rand_index + 1:]
 
-# compare sequences (counts substitutions + indels)
+# compare sequences 
 def Comp_seq(a, b):
     count = abs(len(a) - len(b))
     for x, y in zip(a, b):
@@ -71,7 +71,7 @@ def Read_dict():
 def DNA_RNA_Cod(dna_seq):
     return dna_seq.upper().replace("T", "U")
 
-# translates RNA to protein (safe against frameshifts)
+# translates RNA to protein 
 def RNA_prot(rna_seq):
     protein = ""
     for i in range(0, len(rna_seq) - 2, 3):
@@ -84,7 +84,7 @@ def RNA_prot(rna_seq):
         protein += aa
     return protein
 
-# ---------- main code ----------
+#### main code #####
 
 def main():
     Read_dict()
@@ -119,11 +119,6 @@ def main():
 
     # write output
     with open(os.path.join(results_dir, "mutated_p53.fasta"), "w") as f:
-        f.write(">original p53 DNA sequence\n")
-        f.write(orgnl_seq + "\n\n")
-
-        f.write(">mutated p53 DNA sequence\n")
-        f.write(mutated_seq + "\n\n")
 
         f.write(">original p53 protein\n")
         f.write(p53_orig + "\n\n")
@@ -131,8 +126,5 @@ def main():
         f.write(">mutated p53 protein\n")
         f.write(mut_p53_prot + "\n\n")
 
-        f.write(f"DNA differences: {diff_num}\n")
-        f.write(f"Percent difference: {percent_diff:.2f}%\n")
-        f.write(f"Protein differences: {p53_diff}\n")
 
 main()

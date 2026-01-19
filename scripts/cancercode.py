@@ -58,3 +58,14 @@ def Comp_seq(a, b):
     if x != y:
       count += 1
   return count
+
+#translates codons to amino acids
+def Read_dict():
+  global RNA_codon_table
+  with open("codon_AA.txt") as f:
+    for line in f:
+      line = line.strip()
+      if not line:
+        continue
+      codon, aa = line.split()  
+      RNA_codon_table[codon] = aa

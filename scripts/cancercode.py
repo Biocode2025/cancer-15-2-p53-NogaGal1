@@ -69,3 +69,8 @@ def Read_dict():
         continue
       codon, aa = line.split()  
       RNA_codon_table[codon] = aa
+
+#transcribes DNA to RNA 
+def DNA_RNA_Cod(dna_seq):
+  rna_seq = dna_seq.upper().replace("T", "U")
+  return rna_seq

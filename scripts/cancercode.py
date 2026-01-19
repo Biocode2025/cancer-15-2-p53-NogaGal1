@@ -20,4 +20,20 @@ def Mutate_DNA(seq):
   Mutated_seq = fst_part + new_nuc + snd_part
   
   return Mutated_seq
+
+#function that adds a nucleotid 
+def Insert_DNA(seq):
+  nuc_list = ["A", "T", "G", "C"]
+  seq = seq.upper()
+  
+  #select a random index and a random nucleotid
+  rand_index = random.randrange(0, len(seq)) 
+  new_nuc = random.choice(nuc_list)     
+    
+  #create & combine the parts
+  fst_part = seq[:rand_index]
+  snd_part = seq[rand_index:]
+  mutated_seq = fst_part + new_nuc + snd_part
+
+  return mutated_seq
   

@@ -50,3 +50,11 @@ def Delete_DNA(seq):
   mutated_seq = fst_part + snd_part
 
   return mutated_seq
+
+#compare the sequences, return number of diffrences
+def Comp_seq(a, b):
+  count = 0
+  for x, y in zip(a, b):
+    if x != y:
+      count += 1
+  return count

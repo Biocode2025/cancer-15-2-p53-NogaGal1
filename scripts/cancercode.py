@@ -36,4 +36,17 @@ def Insert_DNA(seq):
   mutated_seq = fst_part + new_nuc + snd_part
 
   return mutated_seq
+
+#function that deletes a nucleotid
+def Delete_DNA(seq):
+  seq = seq.upper()
   
+  rand_index = random.randrange(0, len(seq)) 
+  
+  #create & combine the parts
+  fst_part = seq[:rand_index]
+  snd_part = seq[rand_index + 1:] #ignores a nucleotid (deletes it)
+
+  mutated_seq = fst_part + snd_part
+
+  return mutated_seq
